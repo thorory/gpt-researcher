@@ -34,7 +34,8 @@ def generate_report_prompt(question, context, report_format="apa", total_words=1
             relevant results that answer the query accurately. Place these citations at the end \
             of the sentence or paragraph that reference them.\n"\
             f"Please do your best, this is very important to my career. " \
-            f"Assume that the current date is {datetime.now().strftime('%B %d, %Y')}"
+            f"Assume that the current date is {datetime.now().strftime('%B %d, %Y')}" \
+            f"Write the report using Chinese language."
 
 
 def generate_resource_report_prompt(question, context, report_format="apa", total_words=1000):
@@ -54,7 +55,8 @@ def generate_resource_report_prompt(question, context, report_format="apa", tota
            'Ensure that the report is well-structured, informative, in-depth, and follows Markdown syntax.\n' \
            'Include relevant facts, figures, and numbers whenever available.\n' \
            'The report should have a minimum length of 700 words.\n' \
-            'You MUST include all relevant source urls.'
+            'You MUST include all relevant source urls.' \
+            f"Write the report using Chinese language."
 
 def generate_custom_report_prompt(query_prompt, context, report_format="apa", total_words=1000):
     return f'"{context}"\n\n{query_prompt}'
@@ -71,7 +73,8 @@ def generate_outline_report_prompt(question, context, report_format="apa", total
            f' for the following question or topic: "{question}". The outline should provide a well-structured framework' \
            ' for the research report, including the main sections, subsections, and key points to be covered.' \
            ' The research report should be detailed, informative, in-depth, and a minimum of 1,200 words.' \
-           ' Use appropriate Markdown syntax to format the outline and ensure readability.'
+           ' Use appropriate Markdown syntax to format the outline and ensure readability.' \
+           f"Write the report using Chinese language."
 
 
 def get_report_by_type(report_type):

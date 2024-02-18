@@ -65,7 +65,7 @@ async def choose_agent(query, cfg):
             messages=[
                 {"role": "system", "content": f"{auto_agent_instructions()}"},
                 {"role": "user", "content": f"task: {query}"}],
-            temperature=0,
+            temperature=0.1,
             llm_provider=cfg.llm_provider
         )
         agent_dict = json.loads(response)
@@ -92,7 +92,7 @@ async def get_sub_queries(query, agent_role_prompt, cfg):
         messages=[
             {"role": "system", "content": f"{agent_role_prompt}"},
             {"role": "user", "content": generate_search_queries_prompt(query, max_iterations=max_research_iterations)}],
-        temperature=0,
+        temperature=0.1,
         llm_provider=cfg.llm_provider
     )
     sub_queries = json.loads(response)
@@ -187,7 +187,7 @@ async def summarize_url(query, raw_data, agent_role_prompt, cfg):
             messages=[
                 {"role": "system", "content": f"{agent_role_prompt}"},
                 {"role": "user", "content": f"{generate_summary_prompt(query, raw_data)}"}],
-            temperature=0,
+            temperature=0.1,
             llm_provider=cfg.llm_provider
         )
     except Exception as e:
@@ -219,7 +219,7 @@ async def generate_report(query, context, agent_role_prompt, report_type, websoc
             messages=[
                 {"role": "system", "content": f"{agent_role_prompt}"},
                 {"role": "user", "content": f"{generate_prompt(query, context, cfg.report_format, cfg.total_words)}"}],
-            temperature=0,
+            temperature=0.1,
             llm_provider=cfg.llm_provider,
             stream=True,
             websocket=websocket,

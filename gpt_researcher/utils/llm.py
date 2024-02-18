@@ -108,7 +108,7 @@ def choose_agent(smart_llm_model: str, llm_provider: str, task: str) -> dict:
             messages=[
                 {"role": "system", "content": f"{auto_agent_instructions()}"},
                 {"role": "user", "content": f"task: {task}"}],
-            temperature=0,
+            temperature=0.1,
             llm_provider=llm_provider
         )
         agent_dict = json.loads(response)
